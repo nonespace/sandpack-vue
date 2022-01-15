@@ -1,14 +1,19 @@
 {
   "name": "sandpack-vue",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Vue components for Sandpack",
+  "main": "lib/src/index.js",
+  "author": "Timur Badretdinov <destinerx@gmail.com>",
+  "keywords": [
+    "vue",
+    "sandpack"
+  ],
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Destiner/sandpack-vue.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@codesandbox/sandpack-client": "^0.13.0"
   },
