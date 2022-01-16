@@ -13,8 +13,6 @@ Vue components for [Sandpack](https://sandpack.codesandbox.io).
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-
 import { Sandbox } from 'sandpack-vue';
 
 const info = {
