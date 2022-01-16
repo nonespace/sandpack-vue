@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch, PropType } from 'vue';
 import { ClientOptions, SandpackClient, SandboxInfo } from '@codesandbox/sandpack-client';
+import { ref, onMounted, watch, PropType } from 'vue';
 
 const props = defineProps({
 	info: {
@@ -16,7 +16,10 @@ const props = defineProps({
 	options: {
 		type: Object as PropType<ClientOptions>,
 		required: false,
-	}
+		default: () => {
+			return {};
+		},
+	},
 });
 
 const editor = ref(null);
