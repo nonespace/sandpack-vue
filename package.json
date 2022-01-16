@@ -8,6 +8,9 @@
     "vue",
     "sandpack"
   ],
+  "files": [
+    "src"
+  ],
   "scripts": {
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "eslint \"src/**/*.{js,ts,vue}\"",
