@@ -22,7 +22,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@codesandbox/sandpack-client": "^0.13.0"
+    "@codesandbox/sandpack-client": "^0.13.0",
+    "monaco-editor": "^0.31.1"
   },
   "peerDependencies": {
     "vue": "3.x"
