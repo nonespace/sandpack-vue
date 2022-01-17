@@ -25,19 +25,19 @@ const info = {
 			<div id="app"></div>
 			<script src="src/index.ts" />
 			</body>
-			</html>`
+			</html>`,
 		},
 		'/index.js': {
 			code: `import { v4 as uuidv4 } from 'uuid';
 			document.getElementById("app").innerHTML = \`
 			<div>
 			$\{uuidv4()}
-			</div>\``
-		}
+			</div>\``,
+		},
 	},
-	entry: "/index.js",
+	entry: '/index.js',
 	dependencies: {
-		uuid: "latest",
-	}
+		uuid: 'latest',
+	},
 };
 ```
