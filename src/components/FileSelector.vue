@@ -16,10 +16,12 @@
 <script setup lang="ts">
 import { PropType, computed } from 'vue';
 
+export type FileType = 'html' | 'css' | 'ts';
+
 export interface File {
 	value: string;
 	name: string;
-	language: string;
+	type: FileType;
 	editable: boolean;
 	visible: boolean;
 }
