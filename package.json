@@ -26,8 +26,7 @@
     "@codemirror/lang-css": "^0.19.3",
     "@codemirror/lang-html": "^0.19.4",
     "@codemirror/lang-javascript": "^0.19.6",
-    "@codesandbox/sandpack-client": "^0.13.0",
-    "monaco-editor": "^0.31.1"
+    "@codesandbox/sandpack-client": "^0.13.0"
   },
   "peerDependencies": {
     "vue": "3.x"
