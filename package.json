@@ -23,6 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "@codemirror/basic-setup": "^0.19.1",
+    "@codemirror/highlight": "^0.19.7",
     "@codemirror/lang-css": "^0.19.3",
     "@codemirror/lang-html": "^0.19.4",
     "@codemirror/lang-javascript": "^0.19.6",
