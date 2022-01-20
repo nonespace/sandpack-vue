@@ -21,6 +21,7 @@
   ],
   "scripts": {
     "build": "vue-tsc --declaration --emitDeclarationOnly && vite build",
+    "prepare": "npm run build",
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "eslint \"src/**/*.{js,ts,vue}\"",
     "stylelint": "stylelint \"src/**/*.vue\""
