@@ -23,7 +23,7 @@ import { EditorState, Compartment } from '@codemirror/state';
 import { EditorView, highlightSpecialChars, highlightActiveLine } from '@codemirror/view';
 import { PropType, computed, onMounted, ref } from 'vue';
 
-import { SANDPACK_THEMES } from '../themes';
+import { SandpackPredefinedTheme, SandpackSyntaxStyle, SANDPACK_THEMES } from '../themes';
 
 import FileSelector, { File, FileType } from './FileSelector.vue';
 
@@ -33,7 +33,7 @@ const props = defineProps({
 		required: true,
 	},
 	theme: {
-		type: String,
+		type: String as PropType<SandpackPredefinedTheme>,
 		required: false,
 		default: 'light',
 	},
@@ -52,7 +52,7 @@ const hasVisibleFiles = computed(() => props.files.some((file) => file.visible))
 
 let editor: EditorView | null = null;
 
-function getSyntaxStyle(token: any): any {
+function getSyntaxStyle(token: string | SandpackSyntaxStyle): SandpackSyntaxStyle {
 	if (typeof token === 'string') {
 		return { color: token };
 	}
@@ -90,7 +90,7 @@ function hexToRGB(hex: string): { red: number; green: number; blue: number } {
 	};
 }
 
-function getTheme(themeName: string) {
+function getTheme(themeName: SandpackPredefinedTheme) {
 	const theme = SANDPACK_THEMES[themeName];
 	return EditorView.theme({
 		'&': {
@@ -148,7 +148,7 @@ function getTheme(themeName: string) {
 	});
 }
 
-function getSyntaxHighlight(themeName: string) {
+function getSyntaxHighlight(themeName: SandpackPredefinedTheme) {
 	const theme = SANDPACK_THEMES[themeName];
 	return HighlightStyle.define([
 		{ tag: tags.link, textDecoration: 'underline' },

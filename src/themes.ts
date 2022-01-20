@@ -1,4 +1,66 @@
-export const defaultLight = {
+export type SandpackPredefinedTheme =
+	| 'light'
+	| 'dark'
+	| 'sandpack-dark'
+	| 'night-owl'
+	| 'aqua-blue'
+	| 'github-light'
+	| 'monokai-pro';
+
+export interface SandpackTheme {
+	palette: {
+		activeText: string;
+		defaultText: string;
+		inactiveText: string;
+		activeBackground: string;
+		defaultBackground: string;
+		inputBackground: string;
+		accent: string;
+		errorBackground: string;
+		errorForeground: string;
+	};
+	syntax: {
+		plain: string | SandpackSyntaxStyle;
+		comment: string | SandpackSyntaxStyle;
+		keyword: string | SandpackSyntaxStyle;
+		definition: string | SandpackSyntaxStyle;
+		punctuation: string | SandpackSyntaxStyle;
+		property: string | SandpackSyntaxStyle;
+		tag: string | SandpackSyntaxStyle;
+		static: string | SandpackSyntaxStyle;
+		string?: string | SandpackSyntaxStyle; // use static as fallback
+	};
+	typography: {
+		bodyFont: string;
+		monoFont: string;
+		fontSize: string;
+		lineHeight: string;
+	};
+}
+
+export interface SandpackSyntaxStyle {
+	color?: string;
+	fontStyle?: 'normal' | 'italic';
+	fontWeight?:
+		| 'normal'
+		| 'bold'
+		| '100'
+		| '200'
+		| '300'
+		| '400'
+		| '500'
+		| '600'
+		| '700'
+		| '800'
+		| '900';
+	textDecoration?:
+		| 'none'
+		| 'underline'
+		| 'line-through'
+		| 'underline line-through';
+}
+
+export const defaultLight: SandpackTheme = {
 	palette: {
 		activeText: '#1f2933',
 		defaultText: '#757678',
@@ -34,7 +96,7 @@ export const defaultLight = {
 /**
  * @category Theme
  */
-export const defaultDark = {
+export const defaultDark: SandpackTheme = {
 	palette: {
 		activeText: '#FFFFFF',
 		defaultText: '#999999',
@@ -70,7 +132,7 @@ export const defaultDark = {
 /**
  * @category Theme
  */
-export const sandpackDark = {
+export const sandpackDark: SandpackTheme = {
 	palette: {
 		activeText: '#90e86f',
 		defaultText: '#5a5a5a',
@@ -106,7 +168,7 @@ export const sandpackDark = {
 /**
  * @category Theme
  */
-export const aquaBlueTheme = {
+export const aquaBlueTheme: SandpackTheme = {
 	palette: {
 		activeText: '#1f2933',
 		defaultText: '#737373',
@@ -143,7 +205,7 @@ export const aquaBlueTheme = {
 /**
  * @category Theme
  */
-export const githubLightTheme = {
+export const githubLightTheme: SandpackTheme = {
 	palette: {
 		activeText: '#24292e',
 		defaultText: '#959da5',
@@ -182,7 +244,7 @@ export const githubLightTheme = {
 /**
  * @category Theme
  */
-export const nightOwlTheme = {
+export const nightOwlTheme: SandpackTheme = {
 	palette: {
 		activeText: 'rgb(197, 228, 253)',
 		defaultText: 'rgb(105, 136, 161)',
@@ -218,7 +280,7 @@ export const nightOwlTheme = {
 /**
  * @category Theme
  */
-export const monokaiProTheme = {
+export const monokaiProTheme: SandpackTheme = {
 	palette: {
 		activeText: 'rgb(252, 252, 250)',
 		defaultText: 'rgb(147, 146, 147)',
@@ -254,7 +316,7 @@ export const monokaiProTheme = {
 /**
  * @category Theme
  */
-export const SANDPACK_THEMES = {
+export const SANDPACK_THEMES: Record<SandpackPredefinedTheme, SandpackTheme> = {
 	light: defaultLight,
 	dark: defaultDark,
 	'sandpack-dark': sandpackDark,
