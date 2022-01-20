@@ -48,7 +48,7 @@ const props = defineProps({
 
 const emit = defineEmits(['select']);
 
-const root = ref<HTMLInputElement | null>(null);
+const root = ref<HTMLElement | null>(null);
 
 onMounted(() => {
 	setTheme(props.theme, props.files[0].name);
@@ -64,6 +64,10 @@ function selectFile(name: string) {
 
 function setTheme(themeName: string, fileName: string) {
 	const theme = SANDPACK_THEMES[themeName];
+
+	if (!root.value) {
+		return;
+	}
 
 	root.value.style.borderBottomColor = theme.palette.inactiveText;
 	root.value.style.background = theme.palette.defaultBackground;

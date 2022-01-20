@@ -22,14 +22,20 @@ const props = defineProps({
 	},
 });
 
-const editor = ref(null);
+const editor = ref<HTMLIFrameElement | null>(null);
 let client: SandpackClient | null = null;
 
 onMounted(() => {
+	if (!editor.value) {
+		return;
+	}
 	client = new SandpackClient(editor.value, props.info, props.options);
 });
 
 watch(() => props.info, (info) => {
+	if (!client) {
+		return;
+	}
 	client.updatePreview(info);
 });
 </script>

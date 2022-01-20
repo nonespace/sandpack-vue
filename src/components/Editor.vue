@@ -43,7 +43,7 @@ const emit = defineEmits(['change']);
 
 const language = new Compartment();
 
-const wrapper = ref(null);
+const wrapper = ref<HTMLElement | null>(null);
 
 const activeFileIndex = ref(0);
 const activeFile = computed(() => props.files[activeFileIndex.value]);
@@ -207,6 +207,10 @@ function getLanguage(type: FileType) {
 function handleFileSelect(index: number) {
 	activeFileIndex.value = index;
 
+	if (!editor) {
+		return;
+	}
+
 	editor.dispatch({
 		changes: {
 			from: 0,
@@ -231,6 +235,10 @@ onMounted(() => {
 		language.of(getLanguage(activeFile.value.type)),
 	];
 
+	if (!wrapper.value) {
+		return;
+	}
+
 	editor = new EditorView({
 		state: EditorState.create({
 			doc: activeFile.value.value,
@@ -238,6 +246,9 @@ onMounted(() => {
 		}),
 		parent: wrapper.value,
 		dispatch: (transaction): void => {
+			if (!editor) {
+				return;
+			}
 			editor.update([transaction]);
 
 			if (transaction.docChanged) {
