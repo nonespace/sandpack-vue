@@ -8,11 +8,33 @@ export default defineConfig({
 	build: {
 		lib: {
 			entry: path.resolve(__dirname, 'src/index.ts'),
-			formats: ['es'],
+			formats: ['es', 'umd'],
+			name: 'SandpackVue',
 		},
 		outDir: 'dist/lib',
 		rollupOptions: {
-			external: [/node_modules/],
+			external: [
+				'vue',
+				'@codemirror/highlight',
+				'@codemirror/lang-css',
+				'@codemirror/lang-html',
+				'@codemirror/lang-javascript',
+				'@codemirror/state',
+				'@codemirror/view',
+				'@codesandbox/sandpack-client',
+			],
+			output: {
+				globals: {
+					vue: 'Vue',
+					'@codemirror/highlight': 'CodemirrorHighlight',
+					'@codemirror/lang-css': 'CodemirrorLangCss',
+					'@codemirror/lang-html': 'CodemirrorLangHtml',
+					'@codemirror/lang-javascript': 'CodemirrorLangJavascript',
+					'@codemirror/state': 'CodemirrorState',
+					'@codemirror/view': 'CodemirrorView',
+					'@codesandbox/sandpack-client': 'CodesandboxSandpackClient',
+				},
+			},
 		},
 	},
 });

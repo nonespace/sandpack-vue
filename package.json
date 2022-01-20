@@ -2,9 +2,12 @@
   "name": "sandpack-vue",
   "version": "0.5.0",
   "description": "Vue components for Sandpack",
+  "main": "./dist/lib/sandpack-vue.umd.js",
+  "module": "./dist/lib/sandpack-vue.es.js",
   "exports": {
     ".": {
-      "import": "./dist/lib/sandpack-vue.es.js"
+      "import": "./dist/lib/sandpack-vue.es.js",
+      "require": "./dist/lib/sandpack-vue.umd.js"
     }
   },
   "types": "./dist/types",
