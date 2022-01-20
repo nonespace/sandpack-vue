@@ -12,7 +12,7 @@
     "src"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "vue-tsc --declaration --emitDeclarationOnly && vite build",
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "eslint \"src/**/*.{js,ts,vue}\"",
     "stylelint": "stylelint \"src/**/*.vue\""
