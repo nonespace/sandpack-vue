@@ -5,6 +5,9 @@
   "exports": {
     ".": {
       "import": "./dist/lib/sandpack-vue.es.js"
+    },
+    "./style.css": {
+      "import": "./dist/lib/style.css"
     }
   },
   "types": "./dist/types",
