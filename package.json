@@ -1,6 +1,6 @@
 {
   "name": "sandpack-vue",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Vue components for Sandpack",
   "main": "./dist/lib/sandpack-vue.umd.js",
   "module": "./dist/lib/sandpack-vue.es.js",
