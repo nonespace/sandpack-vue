@@ -19,7 +19,7 @@
 import { PropType, computed, onMounted, ref } from 'vue';
 
 import { File } from '../files';
-import { SandpackPredefinedTheme, SANDPACK_THEMES } from '../themes';
+import { SandpackTheme } from '../themes';
 
 const props = defineProps({
 	files: {
@@ -31,9 +31,8 @@ const props = defineProps({
 		required: true,
 	},
 	theme: {
-		type: String as PropType<SandpackPredefinedTheme>,
-		required: false,
-		default: 'light',
+		type: Object as PropType<SandpackTheme>,
+		required: true,
 	},
 });
 
@@ -53,9 +52,7 @@ function selectFile(name: string) {
 	emit('select', index);
 }
 
-function setTheme(themeName: SandpackPredefinedTheme, fileName: string) {
-	const theme = SANDPACK_THEMES[themeName];
-
+function setTheme(theme: SandpackTheme, fileName: string) {
 	if (!root.value) {
 		return;
 	}

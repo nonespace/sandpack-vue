@@ -6,8 +6,9 @@ import type {
 	SandpackPredefinedTheme,
 	SandpackSyntaxStyle,
 } from './themes';
+import { getPredefinedTheme } from './themes';
 
-export { Editor, Sandbox };
+export { Editor, Sandbox, getPredefinedTheme };
 export type {
 	File,
 	SandpackTheme,

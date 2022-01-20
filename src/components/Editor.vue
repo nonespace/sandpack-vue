@@ -24,7 +24,7 @@ import { EditorView, highlightSpecialChars, highlightActiveLine } from '@codemir
 import { PropType, computed, onMounted, ref } from 'vue';
 
 import { File, FileType } from '../files';
-import { SandpackPredefinedTheme, SandpackSyntaxStyle, SANDPACK_THEMES } from '../themes';
+import { SandpackSyntaxStyle, SandpackTheme, getPredefinedTheme } from '../themes';
 
 import FileSelector from './FileSelector.vue';
 
@@ -34,9 +34,9 @@ const props = defineProps({
 		required: true,
 	},
 	theme: {
-		type: String as PropType<SandpackPredefinedTheme>,
+		type: Object as PropType<SandpackTheme>,
 		required: false,
-		default: 'light',
+		default: getPredefinedTheme('light'),
 	},
 });
 
@@ -91,8 +91,7 @@ function hexToRGB(hex: string): { red: number; green: number; blue: number } {
 	};
 }
 
-function getTheme(themeName: SandpackPredefinedTheme) {
-	const theme = SANDPACK_THEMES[themeName];
+function themeEditor(theme: SandpackTheme) {
 	return EditorView.theme({
 		'&': {
 			backgroundColor: theme.palette.defaultBackground,
@@ -149,8 +148,7 @@ function getTheme(themeName: SandpackPredefinedTheme) {
 	});
 }
 
-function getSyntaxHighlight(themeName: SandpackPredefinedTheme) {
-	const theme = SANDPACK_THEMES[themeName];
+function getSyntaxHighlight(theme: SandpackTheme) {
 	return HighlightStyle.define([
 		{ tag: tags.link, textDecoration: 'underline' },
 		{ tag: tags.emphasis, fontStyle: 'italic' },
@@ -229,7 +227,7 @@ onMounted(() => {
 		highlightSpecialChars(),
 		highlightActiveLine(),
 		defaultHighlightStyle.fallback,
-		getTheme(props.theme),
+		themeEditor(props.theme),
 		getSyntaxHighlight(props.theme),
 
 		EditorView.editable.of(activeFile.value.editable),

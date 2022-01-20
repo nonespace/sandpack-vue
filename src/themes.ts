@@ -60,6 +60,12 @@ export interface SandpackSyntaxStyle {
 		| 'underline line-through';
 }
 
+export function getPredefinedTheme(
+	themeId: SandpackPredefinedTheme,
+): SandpackTheme {
+	return SANDPACK_THEMES[themeId];
+}
+
 export const defaultLight: SandpackTheme = {
 	palette: {
 		activeText: '#1f2933',
@@ -316,7 +322,7 @@ export const monokaiProTheme: SandpackTheme = {
 /**
  * @category Theme
  */
-export const SANDPACK_THEMES: Record<SandpackPredefinedTheme, SandpackTheme> = {
+const SANDPACK_THEMES: Record<SandpackPredefinedTheme, SandpackTheme> = {
 	light: defaultLight,
 	dark: defaultDark,
 	'sandpack-dark': sandpackDark,
