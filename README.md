@@ -14,6 +14,7 @@ Vue components for [Sandpack](https://sandpack.codesandbox.io).
 
 <script setup lang="ts">
 import { Sandbox } from 'sandpack-vue';
+import 'sandpack-vue/style.css';
 
 const info = {
 	files: {
