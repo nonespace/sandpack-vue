@@ -18,17 +18,8 @@
 <script setup lang="ts">
 import { PropType, computed, onMounted, ref } from 'vue';
 
+import { File } from '../files';
 import { SandpackPredefinedTheme, SANDPACK_THEMES } from '../themes';
-
-export type FileType = 'html' | 'css' | 'ts';
-
-export interface File {
-	value: string;
-	name: string;
-	type: FileType;
-	editable: boolean;
-	visible: boolean;
-}
 
 const props = defineProps({
 	files: {

@@ -23,9 +23,10 @@ import { EditorState, Compartment } from '@codemirror/state';
 import { EditorView, highlightSpecialChars, highlightActiveLine } from '@codemirror/view';
 import { PropType, computed, onMounted, ref } from 'vue';
 
+import { File, FileType } from '../files';
 import { SandpackPredefinedTheme, SandpackSyntaxStyle, SANDPACK_THEMES } from '../themes';
 
-import FileSelector, { File, FileType } from './FileSelector.vue';
+import FileSelector from './FileSelector.vue';
 
 const props = defineProps({
 	files: {
