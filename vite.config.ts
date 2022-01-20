@@ -9,7 +9,6 @@ export default defineConfig({
 		lib: {
 			entry: path.resolve(__dirname, 'src/index.ts'),
 			formats: ['es'],
-			name: 'SandpackVue',
 		},
 		outDir: 'dist/lib',
 		rollupOptions: {
